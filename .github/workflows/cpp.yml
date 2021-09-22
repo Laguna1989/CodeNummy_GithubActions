@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: CMake
-        working-directory: ${{github.workspace}}/python
+        working-directory: ${{github.workspace}}/cpp
         run: cmake -B ${{github.workspace}}/build  .
 
       - name: Build
