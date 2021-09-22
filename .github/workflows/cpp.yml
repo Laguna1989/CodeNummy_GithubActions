@@ -1,0 +1,33 @@
+name: Validate C++
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  UnitTests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up cmake
+        uses: jwlawson/actions-setup-cmake@v1.10
+        with:
+          cmake-version: '3.19.x'
+
+      - name: Set up gcc
+        uses: egor-tensin/setup-gcc@v1
+        with:
+          version: 9
+          platform: x64
+
+      - uses: actions/checkout@v2
+
+      - name: CMake
+        run: cmake -B ${{github.workspace}}/build  .
+
+      - name: Build
+        working-directory: ${{github.workspace}}/build
+        run: make
+
+      - name: Test
+        run: ./unittests

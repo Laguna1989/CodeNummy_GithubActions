@@ -1,0 +1,25 @@
+name: Validate Python
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Python 
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.9
+        
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+        
+    - name: run pytests
+      run: |
+        python -m pytest
