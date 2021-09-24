@@ -1,6 +1,7 @@
 # Overview
 
-This is a Code Nummy about Github Actions
+This is a Code Nummy about Github Actions. Please check out the
+other [Code Nummies](https://github.com/Laguna1989/CodeNummies_Overview).
 
 # Introduction
 
