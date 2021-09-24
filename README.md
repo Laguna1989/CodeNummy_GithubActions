@@ -5,7 +5,7 @@ other [Code Nummies](https://github.com/Laguna1989/CodeNummies_Overview).
 
 # Introduction
 
-Please find some short presentation [here](https://docs.google.com/presentation/d/1vmMu76I2omW6LNN7hPXUzOnCzCxcCFuMzDbzJVC1AT0/edit?usp=sharing)
+Please find some short presentation [here](https://docs.google.com/presentation/d/1vmMu76I2omW6LNN7hPXUzOnCzCxcCFuMzDbzJVC1AT0/edit?usp=sharing). You will need to fork this repository to your own github account.
 
 
 # Instructions
@@ -24,9 +24,14 @@ jobs:
     runs-on: ubuntu-latest
 ```
 
+After you push that file (with at least one step added to the jobs), github will automatically 
+start to process the specified workflow.
+
 **Note**: For every step in the job you can specify the working directory via
-`working-directory: ${{github.workspace}}/python`. This will be required for github actions to start in the correct
-folder.
+```
+working-directory: ${{github.workspace}}/python
+```
+. This will be required for github actions to start in the correct folder.
 
 ## Python instructions
 
