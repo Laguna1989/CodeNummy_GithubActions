@@ -31,21 +31,22 @@ start to process the specified workflow.
 ```
 working-directory: ${{github.workspace}}/python
 ```
-. This will be required for github actions to start in the correct folder.
+. This will be required for github actions to work in the correct folder (e.g. in a `build`-subfolder).
 
 ## Python instructions
 
-* Set up the correct python version is set up. For this we want to use e.g. python
-  3.9. [Hint](https://github.com/actions/setup-python)
+* Set up the correct python version. Assume that python
+  3.9 is required. [Hint](https://github.com/actions/setup-python)
 * Use the [checkout action](https://github.com/actions/checkout) to get a copy of the repository
 * Install the dependencies with pip by executing `pip install -r requirements.txt`
 * Execut the tests via `python -m pytest`
 
 ## C++ Instructions
 
-* Install the correct cmake version (we want to use 3.21)
+* Install the correct cmake version (it is required to use 3.21)
   using [actions-setup-cmake](https://github.com/marketplace/actions/actions-setup-cmake)
-* Install the correct g++ version  (use g++ 9) using [install-gcc](https://github.com/marketplace/actions/install-gcc)
+* Install the correct g++ version  (it is required to use g++ 9) using [install-gcc](https://github.com/marketplace/actions/install-gcc)
+* Use the [checkout action](https://github.com/actions/checkout) to get a copy of the repository
 * call cmake
 * execute the test
 
@@ -54,5 +55,7 @@ working-directory: ${{github.workspace}}/python
 * Add
   a [badge](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge)
   to the Readme file, which shows the CI status
-* Create a binary and provide it automatically. Could be done
-  using [gh-pages](https://github.com/peaceiris/actions-gh-pages). 
+* Provide the binary as a precompiled version automatically. Could be done
+  using [gh-pages](https://github.com/peaceiris/actions-gh-pages). Python can e.g. use pyinstaller to create a binary
+* Create a second job that performs a build on windows
+
