@@ -5,6 +5,7 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+    workflow_dispatch:
     
 jobs:
   UnitTests:
@@ -22,7 +23,7 @@ jobs:
           version: 9
           platform: x64
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: CMake
         working-directory: ${{github.workspace}}/cpp
